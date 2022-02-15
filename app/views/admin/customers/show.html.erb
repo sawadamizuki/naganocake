@@ -1,0 +1,27 @@
+会員詳細
+
+<p>会員ID</p>
+<%= customers.id %>
+
+<p>氏名</p>
+<%= customers.last_name %><%= customers.first_name %>
+
+<p>フリガナ</p>
+<%= customers.last_name_kana %><%= customers.first_name_kana %>
+
+<p>郵便番号</p>
+<%= customers.postal_code %>
+
+<p>住所</p>
+<%= customers.address %>
+
+<p>電話番号</p>
+<%= customers.telephone_number %>
+
+<p>メールアドレス</p>
+<%= customers.email %>
+
+<p>会員ステータス</p>
+
+<%= link_to "編集する", edit_admin_customer(@customers) %>
+<%= link_to "注文履歴一覧を見る" admin_root_path %>
