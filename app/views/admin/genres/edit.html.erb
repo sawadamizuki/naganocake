@@ -5,8 +5,6 @@
 
  <p>ジャンル名</p>
 
-
-
   <%= form_with model:@genre, url:"/admin/genres/#{@genre.id}", local:true do |f| %>
 
     <%= f.text_field :name %>

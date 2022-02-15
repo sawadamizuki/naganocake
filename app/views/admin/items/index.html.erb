@@ -7,8 +7,6 @@
           <th>商品ID</th>
           <th>商品名</th>
           <th>税抜価格</th>
-          <th>ジャンル</th>
-          <th>ステータス</th>
 
         </tr>
     </thead>
@@ -16,7 +14,7 @@
 
      <% @item.each do |item| %>
         <tr>
-          <td></td>
+          <td><%= item.id %></td>
           <td><%= item.name %></td>
           <td><%= item.price %></td>
           <td></td>
