@@ -12,11 +12,11 @@ Rails.application.routes.draw do
     resources :order_details
   end
 
-  namespace :public do
+  scope module: :public do
+    root to: 'homes#top'
     resources :addresses
     resources :cart_items
     resources :costomers
-    resources :homes
     resources :items
     resources :orders
   end

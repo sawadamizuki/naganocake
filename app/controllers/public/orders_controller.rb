@@ -1,9 +1,9 @@
-class Public::OrdersController < ApplicationController
+class Pubric::OrdersController < ApplicationController
 
   def new
   end
 
-  def confirm
+  def comfirm
   end
 
   def complete
@@ -17,5 +17,4 @@ class Public::OrdersController < ApplicationController
 
   def show
   end
-
 end

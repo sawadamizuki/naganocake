@@ -9,10 +9,9 @@ class Public::CustomersController < ApplicationController
   def update
   end
 
-  def comfirm
+  def confirm
   end
 
   def unsubscribe
   end
-
 end

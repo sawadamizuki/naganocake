@@ -14,6 +14,4 @@ class Public::AddressesController < ApplicationController
 
   def destroy
   end
-
-
 end
