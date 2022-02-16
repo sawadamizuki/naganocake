@@ -10,7 +10,6 @@ Rails.application.routes.draw do
     resources :items
     resources :orders
     resources :order_details
-    resources :sessions
   end
 
   namespace :public do
@@ -20,8 +19,6 @@ Rails.application.routes.draw do
     resources :homes
     resources :items
     resources :orders
-    resources :registrations
-    resources :sessions
   end
 
 
