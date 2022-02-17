@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :customers
+  devise_for :customers, controllers: {
+    sessions:      'customers/sessions',
+    passwords:     'customers/passwords',
+    registrations: 'customers/registrations'
+  }
   devise_for :admin
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
@@ -14,9 +18,14 @@ Rails.application.routes.draw do
 
   scope module: :public do
     root to: 'homes#top'
+    get '/about' => 'homes#about'
     resources :addresses
     resources :cart_items
-    resources :costomers
+    resource :customers, only: [:show, :edit, :update] do
+    collection do
+      get 'my_page', to: "customers#show"
+    end
+  end
     resources :items
     resources :orders
   end

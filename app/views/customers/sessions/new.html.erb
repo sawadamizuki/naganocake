@@ -1,6 +1,5 @@
 <h2>ログイン</h2>
-
-<%= form_with model: @customers, url: customer_session_path, local: true do |f| %>
+<%= form_for(resource, as: resource_name, url: session_pathu(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email, "メールアドレス" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
