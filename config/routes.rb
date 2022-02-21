@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     passwords:     'customers/passwords',
     registrations: 'customers/registrations'
   }
-  devise_for :admin
+  devise_for :admin, controllers: {
+    sessions:      'admin/sessions'
+  }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   namespace :admin do
@@ -21,7 +23,7 @@ Rails.application.routes.draw do
     get '/about' => 'homes#about'
     resources :addresses
     resources :cart_items
-    resource :customers, only: [:show, :edit, :update] do
+    resource :customers, only: [:edit, :update] do
     collection do
       get 'my_page', to: "customers#show"
     end

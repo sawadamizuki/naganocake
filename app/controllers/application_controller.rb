@@ -6,26 +6,26 @@ class ApplicationController < ActionController::Base
    case resource
     when Admin
       admin_root_path
-     when Customers
+     when Customer
       my_page_customers_path
    end
   end
 
-  def after_sign_out_path_for(resource)
-    case resource
-    when Admin
-      new_admin_session_path
-     when Customers
-      root_path
-    end
-  end
+  # def after_sign_out_path_for(resource)
+  #   case resource
+  #   when Admin
+  #     # new_admin_session_path
+  #   when Customer
+  #     root_path
+  #   end
+  # end
 
 
 
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :last_name, :first_name, :first_name_kana, :last_name_kana, :postal_code, :address, :telephone_number])
   end
 
 end
