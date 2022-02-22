@@ -1,4 +1,4 @@
-class Pubric::OrdersController < ApplicationController
+class Public::OrdersController < ApplicationController
 
   def new
   end
@@ -13,6 +13,7 @@ class Pubric::OrdersController < ApplicationController
   end
 
   def index
+    @orders = Order.all
   end
 
   def show

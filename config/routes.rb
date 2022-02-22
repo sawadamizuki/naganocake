@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     get '/about' => 'homes#about'
     resources :addresses
     resources :cart_items
-    resource :customers, only: [:edit, :update] do
+    resources :customers, only: [:edit, :update] do
     collection do
       get 'my_page', to: "customers#show"
     end
