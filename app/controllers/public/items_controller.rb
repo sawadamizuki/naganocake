@@ -1,7 +1,7 @@
 class Public::ItemsController < ApplicationController
 
   def index
-    @item = @admin.name
+    @item = Item.all
   end
 
   def show

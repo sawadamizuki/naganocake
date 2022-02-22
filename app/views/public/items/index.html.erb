@@ -1,10 +1,14 @@
 商品一覧
 
+
+<% @item.each do |item| %>
 <p>画像</p>
 
 <p>商品名</p>
-<%= @item.name %>
+<%= item.name %>
 
 <p>値段</p>
+<%= item.price %>
 
-（ページャ）
+<% end %>
+
