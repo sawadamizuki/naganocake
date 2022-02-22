@@ -1,6 +1,7 @@
 商品詳細
 
 <p>画像</p>
+<%= attachment_image_tag @item, :image, :fill, 100, 100, format: 'jpeg' %>
 
 <h3>商品名</h3>
 <p><%= @item.name %></p>
