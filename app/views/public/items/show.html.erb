@@ -1,13 +1,16 @@
-商品詳細ページ
+<h3>商品詳細</h3>
 
-<p>画像</p>
+<p><%= attachment_image_tag @item, :image, :fill, 150, 150, format: 'jpeg' %></p>
 
-<p>商品名</p>
 
-<p>説明</p>
+<h3><%= @item.name %></h3>
 
-<p>金額</p>
 
-<p>個数</p>
+<p><%= @item.introduction %></p>
+
+
+<h4>¥<%= @item.price %>（税込）</h4>
+
+<p>個数選択</p>
 
 <p>カートに入れる</p>
