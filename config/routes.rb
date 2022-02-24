@@ -27,9 +27,11 @@ Rails.application.routes.draw do
     collection do
       get 'my_page', to: "customers#show"
     end
-  end
+    end
     resources :items
-    resources :orders
+    resources :orders, only: [:new, :index, :show, :create]
+    get '/orders/:id', to: 'orders#confirm'
+    get '/orders', to: 'orders#complete'
   end
 
 
