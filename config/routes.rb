@@ -28,7 +28,7 @@ Rails.application.routes.draw do
       get 'my_page', to: "customers#show"
     end
     end
-    resources :items
+    resources :items, only: [:index, :show]
     resources :orders, only: [:new, :index, :show, :create]
     get '/orders/:id', to: 'orders#confirm'
     get '/orders', to: 'orders#complete'
