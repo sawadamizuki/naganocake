@@ -22,7 +22,11 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get '/about' => 'homes#about'
     resources :addresses
-    resources :cart_items
+    resources :cart_items, only: [:index, :update, :destroy, :create] do
+    collection do
+      delete 'destroy_all', to: "cart_items#destroy_all"
+    end
+    end
     resources :customers, only: [:edit, :update] do
     collection do
       get 'my_page', to: "customers#show"
