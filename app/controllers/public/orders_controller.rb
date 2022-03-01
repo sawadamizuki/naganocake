@@ -4,12 +4,14 @@ class Public::OrdersController < ApplicationController
     @order = Order.new
   end
 
-  def comfirm
-     @order = Order.new(order_params)
-     @address = Address.find(params[:order][:address_id])
-     @order.postal_code = @address.postal_code
-     @order.address = @address.address
-     @order.name = @address.name
+  def confirm
+   byebug.pry
+    @cart_items = current_customer.cart_items
+    @order = Order.new(order_params)
+    @address = Address.find(params[:order][:address_id])
+    @order.postal_code = @address.postal_code
+    @order.address = @address.address
+    @order.name = @address.name
   end
 
   def complete
