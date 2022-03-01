@@ -13,15 +13,15 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     resources :customers, only: [:index, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
-    resources :items
-    resources :orders
-    resources :order_details
+    resources :items, only: [:inde, :new, :create, :show, :edit, :update]
+    resources :orders, only: [:show, :update]
+    resources :order_details, only: [:update]
   end
 
   scope module: :public do
     root to: 'homes#top'
     get '/about' => 'homes#about'
-    resources :addresses
+    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     resources :cart_items, only: [:index, :update, :destroy, :create] do
     collection do
       delete 'destroy_all', to: "cart_items#destroy_all"
@@ -30,6 +30,8 @@ Rails.application.routes.draw do
     resources :customers, only: [:edit, :update] do
     collection do
       get 'my_page', to: "customers#show"
+      get 'unsubscribe', to: "customers#unsubscribe"
+      patch 'withdraw', to: "customers#withdraw"
     end
     end
     resources :items, only: [:index, :show]
