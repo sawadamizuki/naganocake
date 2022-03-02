@@ -1,6 +1,12 @@
 配送先編集
 
-<p>郵便番号</p>
-<p>住所</p>
-<p>宛名</p>
-<p>変更内容を保存</p>
+
+<%= form_with model: @address, url: address_path(@address), local:true do |f| %>
+  <p>郵便番号
+   <%= f.text_field :postal_code %></p>
+  <p>住所
+   <%= f.text_field :address %></p>
+  <p>宛名
+   <%= f.text_field :name %></p>
+  <p><%= f.submit '変更内容を登録' %></p>
+<% end %>
