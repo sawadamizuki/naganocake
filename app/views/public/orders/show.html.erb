@@ -1,1 +1,30 @@
 注文履歴詳細画面
+
+<h4>注文情報</h4>
+<p>注文日 <%= @order.created_at %></p>
+<p>配送先 <%= @order.address %></p>
+<p>支払方法 <%= @order.payment_method %></p>
+
+<h4>注文内容</h4>
+<table class="table table-honer">
+    <thead>
+        <tr>
+          <th>商品</th>
+          <th>単価</th>
+          <th>個数</th>
+          <th>小計</th>
+        </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<h4>請求情報</h4>
