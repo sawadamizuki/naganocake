@@ -26,22 +26,29 @@ class Public::OrdersController < ApplicationController
   def create
     @order = current_customer.orders.new(order_params)
     @order.save
-    redirect_to complete_orders_path
+    current_customer.cart_items.each do |cart_item|
+      order_detail = OrderDetail.new
+      order_detail.order_id = @order.id
+      order_detail.item_id = cart_item.item_id
+      order_detail.amount = cart_item.amount
+      order_detail.price = cart_item.item.price
+      order_detail.save
+    end
     current_customer.cart_items.destroy_all
+    redirect_to complete_orders_path
   end
 
   def index
-    @orders = Order.all
+    @orders = current_customer.orders
   end
 
   def show
     @order = Order.find(params[:id])
-    @orders = Order.all
-
+    @order_details = @order.order_details
   end
 
    private
   def order_params
-    params.require(:order).permit(:customer_id, :postal_code, :address, :name, :shipping_cost, :amount_billed, :payment_method, :total_payment)
+    params.require(:order).permit(:postal_code, :address, :name, :shipping_cost, :payment_method, :total_payment)
   end
 end
