@@ -1,23 +1,26 @@
-<p>商品新規登録画面</p>
 
-<%= form_with model: @item, url:'/admin/items', local:true do |f| %>
-
-<p>商品画像</p>
-<%= f.attachment_field :image %>
-
-<p>商品名</p>
-<%= f.text_field :name %>
-
-<p>商品説明</p>
-<%= f.text_area :introduction %>
-
-<p>税抜価格</p>
- <p><%= f.text_field :price %>円</p>
-
-
-<%= f.submit '新規登録' %>
-
-<% end %>
+<div class="container">
+  <h3>商品新規登録</h3>
+       <%= form_with model: @item, url:'/admin/items', local:true do |f| %>
+       <div class="row">
+         <div class="col-md-12">
+              <div class="field">
+              <%= f.label :image, "商品画像" %> <%= f.attachment_field :image %>
+              </div>
+              <div class="field">
+                <%= f.label :name, "商品名" %> <%= f.text_field :name %>
+              </div>
+              <div class="field">
+                <%= f.label :introduction, "商品説明" %> <%= f.text_area :introduction %>
+              </div>
+              <div class="field">
+                <%= f.label :price, "税抜価格" %> <%= f.text_field :price %>円
+              </div>
+              <%= f.submit '新規登録', class: "btn btn-warning" %>
+         </div>
+       </div>
+       <% end %>
+</div>
 
 
 

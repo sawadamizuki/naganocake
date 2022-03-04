@@ -1,27 +1,26 @@
-会員詳細
-
-<p>会員ID</p>
-<%= @customers.id %>
-
-<p>氏名</p>
-<%= @customers.last_name %><%= @customers.first_name %>
-
-<p>フリガナ</p>
-<%= @customers.last_name_kana %><%= @customers.first_name_kana %>
-
-<p>郵便番号</p>
-<%= @customers.postal_code %>
-
-<p>住所</p>
-<%= @customers.address %>
-
-<p>電話番号</p>
-<%= @customers.telephone_number %>
-
-<p>メールアドレス</p>
-<%= @customers.email %>
-
-<p>会員ステータス</p>
-
-<%= link_to "編集する", edit_admin_customer_path(@customers) %>
-<%= link_to "注文履歴一覧を見る", admin_root_path %>
+<div class="container">
+ <h3>会員詳細</h3>
+ <div class="row">
+   <div class="col-md-2">
+     <p>会員ID</p>
+     <p>氏名</p>
+     <p>フリガナ</p>
+     <p>郵便番号</p>
+     <p>住所</p>
+     <p>電話番号</p>
+     <p>メールアドレス</p>
+     <p>会員ステータス</p>
+   </div>
+   <div class="col-md-10">
+     <p><%= @customers.id %></p>
+     <p><%= @customers.last_name %><%= @customers.first_name %></p>
+     <p><%= @customers.last_name_kana %><%= @customers.first_name_kana %></p>
+     <p><%= @customers.postal_code %></p>
+     <p><%= @customers.address %></p>
+     <p><%= @customers.telephone_number %></p>
+     <p><%= @customers.email %></p>
+     <p>.</p>
+     <p><%= link_to "編集する", edit_admin_customer_path(@customers), class: "btn btn-warning" %> <%= link_to "注文履歴一覧を見る", admin_root_path, class: "btn btn-info" %></p>
+   </div>
+ </div>
+</div>

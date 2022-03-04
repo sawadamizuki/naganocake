@@ -1,28 +1,26 @@
+<div class="container">
 会員情報編集
-
-<p>会員ID</p>
-<%= @customers.id %>
-
-<%= form_with model:@customer, local: true do |f| %>
-
-<p>氏名</p>
-<%= f.text_field :last_name %>  <%= f.text_field :first_name %>
-
-<p>フリガナ</p>
-<%= f.text_field :last_name_kana %>  <%= f.text_field :first_name_kana %>
-
-<p>郵便番号</p>
-<%= f.text_field :postal_code %>
-
-<p>住所</p>
-<%= f.text_field :address %>
-
-<p>電話番号</p>
-<%= f.text_field :telephone_number %>
-
-<p>メールアドレス</p>
-<%= f.text_field :email %>
-
-<%= f.submit '変更を保存' %>
-
-<% end %>
+ <div class="row">
+    <div class="col-md-2">
+        <p>会員ID</p>
+        <p>氏名</p>
+        <p>フリガナ</p>
+        <p>郵便番号</p>
+        <p>住所</p>
+        <p>電話番号</p>
+        <p>メールアドレス</p>
+    </div>
+    <div class="col-md-10">
+        <p><%= @customers.id %></p>
+        <%= form_with model:@customer, local: true do |f| %>
+        <p><%= f.text_field :last_name %>  <%= f.text_field :first_name %></p>
+        <p><%= f.text_field :last_name_kana %>  <%= f.text_field :first_name_kana %></p>
+        <p><%= f.text_field :postal_code %></p>
+        <p><%= f.text_field :address %></p>
+        <p><%= f.text_field :telephone_number %></p>
+        <p><%= f.text_field :email %></p>
+         <%= f.submit '変更を保存', class: "btn btn-warning" %>
+        <% end %>
+    </div>
+ </div>
+</div>

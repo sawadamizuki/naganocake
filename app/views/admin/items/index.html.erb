@@ -1,6 +1,13 @@
-商品一覧
 
-<%= link_to "新規登録", new_admin_item_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <p class="text-left"><h3>商品一覧</h3></p>
+    </div>
+    <div class="col-md-6">
+      <p class="text-right"><%= link_to "新規登録", new_admin_item_path, class: "btn btn-warning" %></p>
+    </div>
+  </div>
 
   <table class="table table-honer">
     <thead>
@@ -8,13 +15,9 @@
           <th>商品ID</th>
           <th>商品名</th>
           <th>税抜価格</th>
-          <th>ジャンル</th>
-          <th>ステータス</th>
-
         </tr>
     </thead>
     <tbody>
-
      <% @item.each do |item| %>
         <tr>
           <td><%= item.id %></td>
@@ -24,6 +27,7 @@
           <td></td>
         </tr>
      <% end %>
-
     </tbody>
   </table>
+</div>
+

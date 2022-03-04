@@ -1,22 +1,20 @@
-商品編集
-
-<%= form_with model:@item, url:"/admin/items/#{@item.id}", local:true do |f| %>
-
- <p>商品画像</p>
-
-
- <p>商品名</p>
- <%= f.text_field :name %>
-
-
-
- <p>商品説明</p>
- <%= f.text_field :introduction %>
-
- <p>税抜価格</p>
- <%= f.text_field :price %>
-
-
- <%= f.submit '変更を保存' %>
-
-<% end %>
+<div class="container">
+ <h3>商品編集</h3>
+  <div class="row">
+    <div class="col-md-2">
+     <p>商品画像</p>
+     <p>商品名</p>
+     <p>商品説明</p>
+     <p>税抜価格</p>
+    </div>
+    <div class="col-md-10">
+     <%= form_with model:@item, url:"/admin/items/#{@item.id}", local:true do |f| %>
+     <p><%= f.attachment_field :image %></p>
+     <p><%= f.text_field :name %></p>
+     <p><%= f.text_field :introduction %></p>
+     <p><%= f.text_field :price %></p>
+     <%= f.submit '変更を保存', class: "btn btn-warning" %>
+     <% end %>
+    </div>
+  </div>
+</div>

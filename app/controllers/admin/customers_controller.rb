@@ -1,11 +1,12 @@
 class Admin::CustomersController < ApplicationController
 
   def index
-    @customers = Customer.all
+    @customers = Customer.order("created_at DESC").page(params[:page]).reverse_order
   end
 
   def show
     @customers = Customer.find(params[:id])
+
   end
 
   def edit
