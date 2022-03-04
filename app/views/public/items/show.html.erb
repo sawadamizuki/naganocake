@@ -1,19 +1,19 @@
+<div class="container">
 <h3>商品詳細</h3>
+<div class="row">
+  <div class="col-md-3">
+    <p><%= attachment_image_tag @item, :image, :fill, 200, 200, format: 'jpeg' %></p>
+  </div>
+  <div class="col-md-9">
+    <h3><%= @item.name %></h3>
+    <h3><%= @item.introduction %></h3>
+    <p>¥<%= @item.price %>（税込）</p>
+    <%= form_with model:@cart_item, local:true do |f| %>
+      <%= f.hidden_field :item_id, value: @item.id %>
+      <%= f.select :amount, *[1..5] %>
+       <%= f.submit "カートに入れる", class: "btn btn-warning" %>
+    <% end %>
+  </div>
+</div>
 
-<p><%= attachment_image_tag @item, :image, :fill, 150, 150, format: 'jpeg' %></p>
-
-
-<h3><%= @item.name %></h3>
-
-
-<p><%= @item.introduction %></p>
-
-
-<h4>¥<%= @item.price %>（税込）</h4>
-
-<%= form_with model:@cart_item, local:true do |f| %>
-  <%= f.hidden_field :item_id, value: @item.id %>
-  <%= f.select :amount, *[1..5] %>
-
- <%= f.submit "カートに入れる" %>
-<% end %>
+</div>

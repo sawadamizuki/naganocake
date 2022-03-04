@@ -1,3 +1,4 @@
+<div class="container">
 注文情報入力画面
 
 <%= form_with model:@order, url:confirm_orders_path, local:true do |f| %>
@@ -24,8 +25,9 @@
     <%= f.label :address, "住所" %><%= f.text_field :address, autofocus: true %></br>
     <%= f.label :last_name, "宛名" %><%= f.text_field :name, autofocus: true %><br />
 
- <%= f.submit "確認画面へ進む" %>
+ <%= f.submit "確認画面へ進む", class: "btn btn-success" %>
 
 <% end %>
+</div>
 
 

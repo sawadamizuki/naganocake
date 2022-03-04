@@ -1,9 +1,13 @@
-カート商品一覧
-
-<p><%= link_to "カートを空にする", destroy_all_cart_items_path, method: :delete %></p>
-
-
-<table class="table table-honer">
+<div class="container">
+ <div class="row">
+  <div class="col-md-10">
+    <h5>カート商品一覧</h5>
+  </div>
+  <div class="col-md-2">
+    <p><%= link_to "カートを空にする", destroy_all_cart_items_path, method: :delete, class: "btn btn-danger" %></p>
+  </div>
+ </div>
+ <table class="table table-honer">
     <thead>
       <tr>
         <th>商品名</th>
@@ -11,7 +15,6 @@
         <th>数量</th>
         <th>小計</th>
         <th></th>
-
       </tr>
     </thead>
     <tbody>
@@ -29,19 +32,23 @@
             <% end %>
               </td>
           <td><%= cart_item.subtotal %></td>
-          <td><%= link_to "削除", cart_item_path(cart_item), method: :delete %></td>
+          <td><%= link_to "削除", cart_item_path(cart_item), method: :delete, class: "btn btn-danger"  %></td>
           <% @total += cart_item.subtotal %>
         </tr>
      <% end %>
     </tbody>
-
   </table>
+  <div class="row">
+    <div class="col-md-10">
+      <p><%= link_to "買い物を続ける", root_path, class: "btn btn-info" %></p>
+    </div>
+    <div class="col-md-2">
+      <p>合計金額　<%= @total %></p>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <% if @total >= 1 %>
+     <%= link_to "情報入力に進む", new_order_path, class: "btn btn-success" %>
+    <% end %>
+  </div>
 
-  <p>合計金額</p>
-     <%= @total %>
-
- <% if @total >= 1 %>
-  <%= link_to "情報入力に進む", new_order_path %>
- <% end %>
-
- <p><%= link_to "買い物を続ける", root_path %></p>

@@ -28,6 +28,6 @@ class Customers::SessionsController < Devise::SessionsController
   # end
 
   def after_sign_in_path_for(resource)
-      my_page_customers_path
+      root_path
   end
 end
