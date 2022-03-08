@@ -19,7 +19,11 @@
      <p><%= @customers.address %></p>
      <p><%= @customers.telephone_number %></p>
      <p><%= @customers.email %></p>
-     <p>.</p>
+     <p><% if @customers.is_deleted == "Available" %>
+         <td>有効</td>
+        <% else %>
+         <td>退会</td>
+       <% end %></p>
      <p><%= link_to "編集する", edit_admin_customer_path(@customers), class: "btn btn-warning" %> <%= link_to "注文履歴一覧を見る", admin_root_path, class: "btn btn-info" %></p>
    </div>
  </div>

@@ -1,6 +1,6 @@
 <div class="container">
  <h5>登録情報編集</h5>
- <%= form_with model:@blog, local: true do |f| %>
+ <%= form_with model:@customer, url: customer_path(@customer), local: true do |f| %>
  <div class="row">
   <div class="col-md-2">
    <p>氏名</p>
